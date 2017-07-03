@@ -16,9 +16,12 @@ var obj = {
   i: undefined,
   j: {},
   k: new Date(),
-  l() {
-    return 1;
-  }
+  l: function() {
+    // return 1;
+  },
+  // l() {
+  //   return 1;
+  // }
   // $a: 1, // @todo test
   // @todo add items to array.
 };
@@ -32,10 +35,12 @@ var obj1 = {
 describe('jsonf', () => {
 
   it('should eat hardboiled eggs', () => {
-    var str = jsonf.stringify(obj);
+    var str = jsonf.stringifyFunction( () => {} );
+    console.log(str);
+    // var str = jsonf.stringify(obj);
     // console.log(str);
-    var obj2 = jsonf.parse(str);
-    console.log(obj2);
+    // var obj2 = jsonf.parse(str);
+    // console.log(obj2);
     // expect(obj2).to.deep.equal(obj1);
   });
 
