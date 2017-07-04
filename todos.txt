@@ -7,3 +7,14 @@ have a compress feature
 
 
 replace value w/ obj[aaaa] and see if perf inc
+
+test ever field type
+
+
+---
+
+empty obj
+
+test all objs types
+
+test forward too
