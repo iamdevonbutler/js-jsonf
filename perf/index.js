@@ -20,16 +20,16 @@ var obj = {
 };
 
 var x = 1;
+var str = jsonf.stringify(obj);
 while (i--) {
   // var x = [1].concat([2]);
   // var x = [1].unshift(2);
   // JSON.stringify(obj);
-  var str = jsonf.stringify(obj);
-  console.log(str);
+  // console.log(str);
   var obj = jsonf.parse(str);
-  console.log('>>>>> result');
-  console.log(obj);
-  return;
+  // console.log('>>>>> result');
+  // console.log(obj);
+  // return;
   // var x = {a: 1, b: 2};
   // var a = x.a;
 }
