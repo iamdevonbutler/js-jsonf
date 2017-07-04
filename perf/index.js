@@ -27,6 +27,7 @@ while (i--) {
   var str = jsonf.stringify(obj);
   console.log(str);
   var obj = jsonf.parse(str);
+  console.log('>>>>> result');
   console.log(obj);
   return;
   // var x = {a: 1, b: 2};
