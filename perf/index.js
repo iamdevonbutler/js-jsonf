@@ -1,4 +1,5 @@
 // @todo test using actual array buffers over string buffer hack
+// @todo gotta do arrays and objects.
 const microtime = require('microtime');
 
 const jsonf = require('../lib');
@@ -12,26 +13,28 @@ var obj = {
   a: 1,
   b: {
     c: 'string',
-    d: [1,2,3],
+    d: [111,222,333],
   },
   e: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, labore adipisci accusantium! Iure, corporis quia numquam ea error nam sunt. Labore eveniet, nobis eos tempore quis non numquam incidunt nisi!',
   f: {},
   g: [],
 };
 
-var x = 1;
+var obj = [111,222,333, {a: 1}];
+
 var str = jsonf.stringify(obj);
+console.log(jsonf.parse(str));
+return;
+console.log(str);
+// var str = JSON.stringify(obj);
 while (i--) {
-  // var x = [1].concat([2]);
-  // var x = [1].unshift(2);
   // JSON.stringify(obj);
-  // console.log(str);
-  var obj = jsonf.parse(str);
+  jsonf.stringify(obj);
+  // JSON.parse(str);
+  // jsonf.parse(str);
   // console.log('>>>>> result');
   // console.log(obj);
   // return;
-  // var x = {a: 1, b: 2};
-  // var a = x.a;
 }
 
 const ms = (microtime.now() - st) / 1000;
