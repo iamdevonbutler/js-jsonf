@@ -10,9 +10,10 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "4.0.2",
+    "microtime": "2.1.5",
     "mocha": "3.4.2"
   },
   "dependencies": {
-    "microtime": "2.1.5"
+    "parse-function": "5.0.16"
   }
 }
