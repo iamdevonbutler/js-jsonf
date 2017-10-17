@@ -1,3 +1,5 @@
+name: fpieces?
+
 stringify -> can seralize however ide like.
 
 matching on a is exaustive replace $a w/ $! for perf resasons.
@@ -18,3 +20,15 @@ empty obj
 test all objs types
 
 test forward too
+
+doxygen
+
+browser compatible distribution. include a dependencies.
+
+deconstructFunction function should be its own repo!!!
+
+do this all scientific and shit. like do tests that cover all potential scenarios.
+
+tests for deconstruct function by "function type, async, geneartos, ...."
+
+maybe mention that this is a 'low-level' implementation?

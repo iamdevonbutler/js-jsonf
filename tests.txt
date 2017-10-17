@@ -1,0 +1,157 @@
+function type | async | generator | name | params | body
+
+3 * 2 * 2 * 3 * 15 * 15
+
+8K tests
+
+type applied to async
+for
+
+---
+
+function type
+
+{
+  a: function() {}
+  a: () => {}
+  a() {}
+}
+
+---
+
+async
+- yes
+- no
+
+{
+  a: async function() {}
+  a: async function(){}
+  a: async () => {}
+  a: async () =>{}
+  a: async ()=>{}
+  a: async() => {}
+  a: async() =>{}
+  a: async()=>{}
+  async a() {}
+  async a () {}
+}
+
+---
+
+generator
+
+{
+  ...above,
+  a: function*() {}
+  a: function *() {}
+  a: function * () {}
+  a: function *  () {}
+  a: function  *  () {}
+
+  a: function*name() {}
+  a: function * name() {}
+  a: function * name() {}
+  a: function *  name() {}
+  a: function  *  name() {}
+
+  a: function*name () {}
+  a: function * name () {}
+  a: function * name () {}
+  a: function *  name () {}
+  a: function  *  name () {}
+
+  ...as above but as (){} (braces touching parens)
+}
+
+// @todo what happens if u try to write an async generator.
+
+---
+
+name
+- anonmyous
+- 1character
+- muliple characters
+
+* do each of the above w/ each varaition.
+
+
+---
+
+params
+- empty
+
+{
+  a: () => {},
+  a: (a) => {},
+  a: (a,b) => {},
+  a: (a, b) => {},
+  a: ( a, b) => {},
+  a: (  a, b) => {},
+  a: (  a, b) => {},
+  a: (  a, b  ) => {},
+  a: (a, b = true) => {},
+  a: (a = true, b = true) => {},
+
+  a: (function() {}) => {},
+  a: (function() {return 1}) => {},
+  a: (function() {return 1}, function() {return 1}) => {},
+  a: (a = function() {return 1}) => {}
+  a: (a = function() {return 1}, b = function() {}) => {}
+
+  a: (() => {}) => {},
+  a: (() => {return 1}) => {},
+  a: (() => {return 1}, () => {return 1}) => {},
+  a: (a = () => {return 1}) => {}
+  a: (a = () => {return 1}, b = function() {}) => {}
+
+  a: (function*() {return 1}) => {},
+  a: (function* () {return 1}) => {},
+
+  a: (async function() {return 1}) => {},
+  a: (async () => {return 1}) => {},
+
+}
+
+
+
+
+
+* do each of the above w/ each varaition.
+
+---
+
+body
+
+() => {
+  var str = 'hey () how are you,';
+}
+function() {
+  var str = 'hey () how are you,';
+}
+
+() => {function body() {return 1;}body();}
+() => {body() }
+() => { body()}
+() => { body() }
+() => { body()  }
+() => {  body() }
+() => {  body()  }
+() => {
+  function body() {
+    return 1;
+  }
+  body();
+}
+() => {
+
+  function body() {
+    return 1;
+  }
+  body();
+}
+() => 1;
+
+// above but w/ a generator star.
+// above but w/ \n.
+// above but w/ params
+// ...

@@ -35,6 +35,7 @@ var obj = {
 };
 
 // @todo empty function
+// @todo does this support classes inside of functions?
 //
 // function() {}
 // function*() {}
@@ -50,8 +51,12 @@ var obj = {
 // var name = function*() {};
 // var obj = [111,222,333, {a: 1}, [1,2]];
 
+// @todo default value for func params
+// @todo function params are functions
+// @todo unit test deconstructFunction needs it.
+
 obj = {
-  name: function aaa() {console.log(1);},
+  name: function aaa(param, param1 = null) {console.log(44);},
   name0: function() {console.log(1);},
   name1: () => {console.log(1);},
   name2: function* () {},
@@ -62,14 +67,17 @@ obj = {
   name5: async () => {console.log(1);},
 };
 
+// @todo make sure recursion works. how to call self. make a note in the docs.
 var str = jsonf.stringify(obj);
-console.log(jsonf.parse(str));
+var obj = jsonf.parse(str);
+console.log(obj);
 return;
+// while (i--) {
+//   var x = 1;
+// }
 
 
-while (i--) {
-// var str = jsonf.stringify(obj);
-}
+
 
 const ms = (microtime.now() - st) / 1000;
 

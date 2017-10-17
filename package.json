@@ -13,7 +13,5 @@
     "microtime": "2.1.5",
     "mocha": "3.4.2"
   },
-  "dependencies": {
-    "parse-function": "5.0.16"
-  }
+  "dependencies": {}
 }
