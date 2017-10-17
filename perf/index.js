@@ -59,7 +59,7 @@ obj = {
   name: function aaa(param, param1 = null) {console.log(44);},
   name0: function() {console.log(1);},
   name1: () => {console.log(1);},
-  name2: function* () {},
+  // name2: function* () {},
   name2: function* aaa () {},
   name3() {console.log(1);},
   name4: async function() {console.log(1);},

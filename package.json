@@ -4,7 +4,8 @@
   "description": "A malformed JSON parser w/ function support",
   "main": "lib/index.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --harmony --reporter spec --ui bdd --bail --colors ./tests/**/*.test.js"
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --harmony --reporter spec --ui bdd --bail --colors ./tests/**/*.test.js",
+    "perf": "NODE_ENV=perf node ./perf/index.js"
   },
   "author": "Jay Pescione <jpescione@gmail.com> (https://github.com/iamdevonbutler)",
   "license": "MIT",
@@ -13,5 +14,7 @@
     "microtime": "2.1.5",
     "mocha": "3.4.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fparts": "0.1.0"    
+  }
 }
