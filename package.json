@@ -12,9 +12,10 @@
   "devDependencies": {
     "chai": "4.0.2",
     "microtime": "2.1.5",
-    "mocha": "3.4.2"
+    "mocha": "3.4.2",
+    "possibilities": "0.1.0"
   },
   "dependencies": {
-    "fparts": "0.1.0"    
+    "fparts": "0.1.0"
   }
 }
