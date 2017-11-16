@@ -1,6 +1,6 @@
 'use strict';
 
-// no async generators
+// Test arrays and objects as root structures
 
 const should = require('chai').should();
 const expect = require('chai').expect;

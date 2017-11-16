@@ -1,1 +1,18 @@
-test dates - getting different values 
+test dates - getting different values
+
+update naming a - l
+
+/**
+  * Map
+  * b string
+  * c false
+  * d true
+  * e NaN
+  * f number
+  * g array
+  * h null
+  * i undefined
+  * j object
+  * k date
+  * l function
+ */
