@@ -16,3 +16,6 @@ update naming a - l
   * k date
   * l function
  */
+
+is there a way to run a transform test locally. so like before we stringify and push remote,
+what if we did it locally, parsed it, and compared it to orig.
