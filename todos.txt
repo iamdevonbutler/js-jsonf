@@ -1,4 +1,4 @@
-test dates - getting different values
+cant we just toString functions?
 
 update naming a - l
 

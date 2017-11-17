@@ -1,5 +1,6 @@
 'use strict';
 
+// test to make sure obj props that are functions can have a name and call themsevles
 // Test arrays and objects as root structures
 
 const should = require('chai').should();
@@ -22,7 +23,7 @@ var obj = {
   k: [],
   l: {},
   m: new Date(),
-  n: function() {
+  n: function functionName() {
     function aaa() {}
     return 1;
   },
@@ -41,38 +42,52 @@ var obj = {
   s: async function() {
     return 1;
   },
-  t: () => {
+  async t() {
     return 1;
   },
-  async u() {
-    return 1;
-  },
-  v: async () => {
+  u: async () => {
     return 1;
   },
 };
 
 var obj1 = {
   ...obj,
-  w: [obj, obj],
-  x: obj,
+  y: [obj, obj],
+  z: obj,
 };
 
+var obj2 = [
+  obj1,
+  obj1,
+];
+
 describe('jsonf', () => {
-  it ('should work properly', () => {
-    var obj2 = stringify(obj);
-    // console.log(obj2);
-    var obj3 = parse(obj2);
-    console.log(obj3);
-    expect(obj3).to.deep.eql(obj);
+  var obj3 = stringify(obj1);
+  // console.log(obj1);process.exit();
+  var obj4 = parse(obj3);
+  var keys = Object.keys(obj4);
+  keys.forEach(key => {
+    it (`key: ${key}`, async () => {
+      var prop = obj4[key];
+      var isFunc = typeof prop === 'function';
+      if (isFunc) {
+        let isAsync = prop.constructor.name === 'AsyncFunction';
+        let isGenerator = prop.constructor.name === 'GeneratorFunction';
+        if (isAsync) {
+          let result = await prop.call(null);
+          expect(result).to.deep.eql(1);
+        }
+        else if (isGenerator) {
+          let result = prop.call(null);
+          expect(result.next().value).to.deep.eql(1);
+        }
+        else {
+          expect(prop.call(null)).to.deep.eql(1);
+        }
+      }
+      else {
+        expect(prop).to.deep.eql(obj1[key]);
+      }
+    });
   });
-
-  // it ('should work properly', () => {
-  //   var obj2 = stringify(obj1);
-  //   // console.log(obj2);
-  //   var obj3 = parse(obj2);
-  //   console.log(obj3);
-  //   expect(obj3).to.deep.eql(obj1);
-  // });
-
 });
