@@ -62,8 +62,8 @@ var obj2 = [
 ];
 
 describe('jsonf', () => {
+  var result;
   var obj3 = stringify(obj1);
-  // console.log(obj1);process.exit();
   var obj4 = parse(obj3);
   var keys = Object.keys(obj4);
   keys.forEach(key => {
@@ -74,16 +74,16 @@ describe('jsonf', () => {
         let isAsync = prop.constructor.name === 'AsyncFunction';
         let isGenerator = prop.constructor.name === 'GeneratorFunction';
         if (isAsync) {
-          let result = await prop.call(null);
-          expect(result).to.deep.eql(1);
+          result = await prop.call(null);
         }
         else if (isGenerator) {
-          let result = prop.call(null);
-          expect(result.next().value).to.deep.eql(1);
+          result = prop.call(null).next().value;
         }
         else {
-          expect(prop.call(null)).to.deep.eql(1);
+          console.log(prop.toString());
+          result = prop.call(null);
         }
+        expect(result).to.deep.eql(1);
       }
       else {
         expect(prop).to.deep.eql(obj1[key]);
