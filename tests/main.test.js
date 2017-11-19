@@ -1,10 +1,12 @@
 'use strict';
 
-// Test arrays and objects as root structures
-
 const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
+
+// @todo might need to test the other way too.
+// what if the result obj3 2 fields and the source has more. u wont catch that like this.
+
 
 const {stringify, parse} = require('../lib');
 
@@ -73,7 +75,7 @@ describe('jsonf: object', () => {
   var str = stringify(obj1);
   var obj3 = parse(str);
 
-  var keys = Object.keys(obj3);
+  var keys = Object.keys(obj1);
   keys.forEach(key => {
     it (`key: ${key}`, async () => {
       var prop = obj3[key];
@@ -107,12 +109,13 @@ describe('jsonf: object', () => {
 describe('jsonf: array', () => {
   var str = stringify(obj2);
   var obj3 = parse(str);
-  obj3.forEach((item, i) => {
+  obj2.forEach((item, i) => {
     var keys = Object.keys(item);
     keys.forEach((key) => {
-      var prop = item[key];
+      var prop = obj3[i][key];
       it (`item: ${i} key: ${key}`, () => {
         if (typeof prop === 'function') {
+          expect(prop(1, () => 11)).to.eql(obj2[i][key]());
           expect(prop()).to.eql(obj2[i][key]());
         }
         else {

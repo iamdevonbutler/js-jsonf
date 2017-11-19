@@ -1,3 +1,4 @@
+use terminology encode and decode rather than reconstruct deconstruct?
 cant we just toString functions?
 
 update naming a - l
