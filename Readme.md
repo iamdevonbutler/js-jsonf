@@ -1,4 +1,4 @@
-# jsonf
+# jsonf [![Build Status](https://travis-ci.org/iamdevonbutler/jsonf.svg?branch=master)](https://travis-ci.org/iamdevonbutler/jsonf)
 
 A malformed JSON parser w/ function support
 
