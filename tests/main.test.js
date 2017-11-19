@@ -121,6 +121,26 @@ describe('jsonf: custom', () => {
     var obj = parse(str);
     expect(obj.a()).to.eql(2);
   });
+  it ('should handle functions in arrays', () => {
+    var str, parsed, obj;
+
+    obj = [() => 1, function () {return 1;}];
+    str = stringify(obj);
+    parsed = parse(str);
+    expect(parsed.length).to.eql(2);
+    expect(parsed[0]()).to.eql(1);
+    expect(parsed[1]()).to.eql(1);
+
+    obj = {
+      a: () => 1,
+      b: function () {return 1;}
+    };
+    str = stringify(obj);
+    parsed = parse(str);
+    expect(Object.keys(parsed).length).to.eql(2);
+    expect(parsed.a()).to.eql(1);
+    expect(parsed.b()).to.eql(1);
+  });
 });
 
 async function callFunc(func, ...params) {
