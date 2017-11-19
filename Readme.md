@@ -2,6 +2,8 @@
 
 A malformed JSON parser w/ function support.
 
+**engines: node >= 8.x**
+
 ## Example
 ```javascript
 const {stringify, parse} = require('jsonf');

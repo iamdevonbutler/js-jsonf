@@ -16,7 +16,7 @@
     "possibilities": "0.1.0"
   },
   "dependencies": {
-    "fparts": "0.1.0"
+    "fparts": "0.4.0"
   },
   "engines": {
     "node": ">= 8.0.0"
