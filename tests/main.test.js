@@ -4,10 +4,6 @@ const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-// @todo might need to test the other way too.
-// what if the result obj3 2 fields and the source has more. u wont catch that like this.
-
-
 const {stringify, parse} = require('../lib');
 
 var obj = {
@@ -65,42 +61,26 @@ var obj1 = {
 };
 
 var obj2 = [
-  obj,
-  obj,
+  obj1,
+  obj1,
 ];
 
-describe('jsonf: object', () => {
-  var result, result1;
-
+describe('jsonf: object', async () => {
   var str = stringify(obj1);
-  var obj3 = parse(str);
+  var parsed = parse(str);
 
-  var keys = Object.keys(obj1);
+  var keys = Object.keys(obj1); // itterate over obj1. if we itterated obj3 empty arrays wouldn't error.
   keys.forEach(key => {
     it (`key: ${key}`, async () => {
-      var prop = obj3[key];
-      var isFunc = typeof prop === 'function';
+      var isFunc = typeof obj1[key] === 'function';
       if (isFunc) {
-        let isAsync = prop.constructor.name === 'AsyncFunction';
-        let isGenerator = prop.constructor.name === 'GeneratorFunction';
-        if (isAsync) {
-          result = await prop.call(null);
-          result1 = await prop.call(null, 1, () => 0);
-        }
-        else if (isGenerator) {
-          result = prop.call(null).next().value;
-          result1 = prop.call(null, 1, () => 0).next().value;
-        }
-        else {
-          result = prop.call(null);
-          result1 = prop.call(null, 1, () => 0);
-        }
-        // console.log(1, result, result1);
-        expect(result).to.eql(1);
-        expect(result1).to.eql(1);
+        let [actual, actual1] = await callFunc(parsed[key], 1, () => 0);
+        let [expected, expected1] = await callFunc(obj1[key], 1, () => 0);
+        expect(actual).to.eql(expected);
+        expect(actual1).to.eql(expected1);
       }
       else {
-        expect(prop).to.deep.eql(obj1[key]);
+        expect(parsed[key]).to.deep.eql(obj1[key]);
       }
     });
   });
@@ -108,18 +88,20 @@ describe('jsonf: object', () => {
 
 describe('jsonf: array', () => {
   var str = stringify(obj2);
-  var obj3 = parse(str);
-  obj2.forEach((item, i) => {
+  var parsed = parse(str);
+
+  obj2.forEach((item, i) => { // itterate over obj2. if we itterated parsed, empty arrays would not error.
     var keys = Object.keys(item);
     keys.forEach((key) => {
-      var prop = obj3[i][key];
-      it (`item: ${i} key: ${key}`, () => {
-        if (typeof prop === 'function') {
-          expect(prop(1, () => 11)).to.eql(obj2[i][key]());
-          expect(prop()).to.eql(obj2[i][key]());
+      it (`item: ${i} key: ${key}`, async () => {
+        if (typeof obj2[i][key] === 'function') {
+          let [actual, actual1] = await callFunc(parsed[i][key], 1, () => 0);
+          let [expected, expected1] = await callFunc(obj2[i][key], 1, () => 0);
+          expect(actual).to.eql(expected);
+          expect(actual1).to.eql(expected1);
         }
         else {
-          expect(prop).to.eql(obj2[i][key]);
+          expect(parsed[i][key]).to.eql(obj2[i][key]);
         }
       });
     });
@@ -140,3 +122,22 @@ describe('jsonf: custom', () => {
     expect(obj.a()).to.eql(2);
   });
 });
+
+async function callFunc(func, ...params) {
+  var result, result1, isAsync, isGenerator;
+  isAsync = func.constructor.name === 'AsyncFunction';
+  isGenerator = func.constructor.name === 'GeneratorFunction';
+  if (isAsync) {
+    result = await func.apply(null);
+    result1 = await func.apply(null, params);
+  }
+  else if (isGenerator) {
+    result = func.apply(null).next().value;
+    result1 = func.apply(null, params).next().value;
+  }
+  else {
+    result = func.apply(null);
+    result1 = func.apply(null, params);
+  }
+  return [result, result1];
+}
