@@ -1,6 +1,6 @@
 const microtime = require('microtime');
 
-const {stringify, parse} = require('../lib');
+const {encode, decode} = require('../lib');
 
 var obj = {
   a: false,
@@ -18,20 +18,19 @@ var obj = {
   m: new Date(),
 };
 
-// Test jsonf.
 var st = microtime.now();
 var n = 1000000;
 var i = n;
 
 var str, result;
 while (i--) {
-  str = stringify(obj);
-  result = parse(str);
+  str = encode(obj);
+  result = decode(str);
 }
 
 var ms = (microtime.now() - st) / 1000;
 
-console.log('jsonf results:');
+console.log('jsmoves results');
 console.log('milliseconds: ' + ms);
 console.log('ops/sec: ' + (n / (ms / 1000)).toLocaleString() );
 console.log('---');

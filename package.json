@@ -1,7 +1,7 @@
 {
-  "name": "jsonf",
+  "name": "jsmoves",
   "version": "0.1.0",
-  "description": "A malformed JSON parser w/ function support",
+  "description": "Move JS Objects from one live system to another",
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --harmony --reporter spec --ui bdd --bail --colors ./tests/**/*.test.js",
@@ -23,6 +23,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamdevonbutler/jsonf"
+    "url": "https://github.com/iamdevonbutler/jsmoves"
   }
 }

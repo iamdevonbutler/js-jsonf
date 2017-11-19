@@ -4,7 +4,7 @@ const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-const {stringify, parse} = require('../lib');
+const {encode, decode} = require('../lib');
 
 var obj = {
   a: false,
@@ -65,9 +65,9 @@ var obj2 = [
   obj1,
 ];
 
-describe('jsonf: object', async () => {
-  var str = stringify(obj1);
-  var parsed = parse(str);
+describe('jsmoves: object', async () => {
+  var str = encode(obj1);
+  var parsed = decode(str);
 
   var keys = Object.keys(obj1); // itterate over obj1. if we itterated obj3 empty arrays wouldn't error.
   keys.forEach(key => {
@@ -86,9 +86,9 @@ describe('jsonf: object', async () => {
   });
 });
 
-describe('jsonf: array', () => {
-  var str = stringify(obj2);
-  var parsed = parse(str);
+describe('jsmoves: array', () => {
+  var str = encode(obj2);
+  var parsed = decode(str);
 
   obj2.forEach((item, i) => { // itterate over obj2. if we itterated parsed, empty arrays would not error.
     var keys = Object.keys(item);
@@ -108,9 +108,9 @@ describe('jsonf: array', () => {
   });
 });
 
-describe('jsonf: custom', () => {
+describe('jsmoves: custom', () => {
   it ('should properly name a function (as property on object) allowing it to call itself and recurse.', () => {
-    var str = stringify({
+    var str = encode({
       a: function aaa(i = 0) {
         if (i < 2) {
           return aaa(i+1);
@@ -118,15 +118,15 @@ describe('jsonf: custom', () => {
         return i;
       }
     });
-    var obj = parse(str);
+    var obj = decode(str);
     expect(obj.a()).to.eql(2);
   });
   it ('should handle functions in arrays', () => {
     var str, parsed, obj;
 
     obj = [() => 1, function () {return 1;}];
-    str = stringify(obj);
-    parsed = parse(str);
+    str = encode(obj);
+    parsed = decode(str);
     expect(parsed.length).to.eql(2);
     expect(parsed[0]()).to.eql(1);
     expect(parsed[1]()).to.eql(1);
@@ -135,8 +135,8 @@ describe('jsonf: custom', () => {
       a: () => 1,
       b: function () {return 1;}
     };
-    str = stringify(obj);
-    parsed = parse(str);
+    str = encode(obj);
+    parsed = decode(str);
     expect(Object.keys(parsed).length).to.eql(2);
     expect(parsed.a()).to.eql(1);
     expect(parsed.b()).to.eql(1);
