@@ -2,7 +2,19 @@
 
 A malformed JSON parser w/ function support
 
----
+## Example
+```javascript
+const {stringify, parse} = require('jsonf');
+const obj = {
+  a: 1,
+  b() {
+    return 1;
+  }
+};
+const str = stringify(obj);
+const obj1 = parse(str);
+
+```
 
 ## Supported data types
 
@@ -18,7 +30,6 @@ A malformed JSON parser w/ function support
 - undefined
 
 ## Caveats
-
 Function behavior is normalized and consistent; however, the parsed function may contain slight formatting differences from the original; its functionality however, will remain consistent.
 
 ## Perf
