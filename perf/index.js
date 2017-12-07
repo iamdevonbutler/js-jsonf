@@ -2,10 +2,6 @@ const microtime = require('microtime');
 
 const {encode, decode} = require('../lib');
 
-
-console.log(decode(encode(undefined)));
-return;
-
 var obj = {
   a: false,
   b: true,

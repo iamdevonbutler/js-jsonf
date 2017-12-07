@@ -24,10 +24,11 @@ npm i jsmoves --save
 ```
 
 ## API
-### .encode(obj)
-### .decode(str)
+### .encode(obj, throwOnInvalidType = false)
+### .decode(str throwOnInvalidSyntax = false)
 
-## Does it throw, does it throw, does it throw?
+By default, without throwing errors, `.encode()` returns `false` given an invalid type.
+By default, without throwing errors, `.decode()` returns `undefined` given a invalid syntax.
 
 ## Supported data types
 
@@ -42,11 +43,13 @@ npm i jsmoves --save
 - null
 - undefined
 
+*All types are supported when wrapped in a function.*
+
 ## Caveats
 Function behavior is normalized and consistent; however, the parsed function may contain slight formatting differences from the original; its functionality however, will remain consistent.
 
 ## Perf
-As fast, if not a bit faster, than native JSON.parse() JSON.stringify():
+As fast as native JSON.parse() JSON.stringify():
 
 ```javascript
 // 1M iterations. Each iteration calls both encode and decode.

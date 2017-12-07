@@ -168,6 +168,26 @@ describe('jsmoves: custom', () => {
     expect(parsed.a()).to.eql(1);
     expect(parsed.b()).to.eql(1);
   });
+  it ('encode() should `throw` given an invalid data type (throwOnInvalidType=true)', () => {
+    var err;
+    try {
+      encode(Symbol(), true);
+    }
+    catch (e) {
+      err = e;
+    }
+    expect(!!err).to.be.true;
+  });
+  it ('decode() should `throw` given invalid syntax (throwOnInvalidSyntax=true)', () => {
+    var err;
+    try {
+      decode('9', true);
+    }
+    catch (e) {
+      err = e;
+    }
+    expect(!!err).to.be.true;
+  });
 });
 
 async function callFunc(func, ...params) {
