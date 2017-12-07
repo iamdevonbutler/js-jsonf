@@ -108,6 +108,22 @@ describe('jsmoves: array', () => {
   });
 });
 
+describe('jsmoves: function', () => {
+  var keys = Object.keys(funcs);
+  keys.forEach(async key => {
+    it (`key: ${key}`, async () => {
+      var func = funcs[key];
+      var str = encode(func);
+      console.log(parsed);
+      var parsed = decode(str);
+      var [actual, actual1] = await callFunc(parsed, 1, () => 0);
+      var [expected, expected1] = await callFunc(funcs[key], 1, () => 0);
+      expect(actual).to.eql(expected);
+      expect(actual1).to.eql(expected1);
+    });
+  })
+});
+
 describe('jsmoves: custom', () => {
   it ('should properly name a function (as property on object) allowing it to call itself and recurse.', () => {
     var str = encode({
