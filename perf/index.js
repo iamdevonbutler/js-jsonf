@@ -42,8 +42,8 @@ var i = n;
 
 var str, result;
 while (i--) {
-  // str = JSON.stringify(obj);
-  // result = JSON.parse(str);
+  str = JSON.stringify(obj);
+  result = JSON.parse(str);
 }
 
 var ms = (microtime.now() - st) / 1000;
