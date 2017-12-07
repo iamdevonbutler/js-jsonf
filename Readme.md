@@ -35,7 +35,7 @@ npm i jsmoves --save
 - Array
 - Object
 - Date
-- Function
+- Function (regular, async, generator, arrow)
 - NaN
 - null
 - undefined

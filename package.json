@@ -1,6 +1,6 @@
 {
   "name": "jsmoves",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Move JS Objects from one live system to another",
   "main": "lib/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "fparts": "0.4.0"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",

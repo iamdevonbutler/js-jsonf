@@ -114,7 +114,6 @@ describe('jsmoves: function', () => {
     it (`key: ${key}`, async () => {
       var func = funcs[key];
       var str = encode(func);
-      console.log(parsed);
       var parsed = decode(str);
       var [actual, actual1] = await callFunc(parsed, 1, () => 0);
       var [expected, expected1] = await callFunc(funcs[key], 1, () => 0);
