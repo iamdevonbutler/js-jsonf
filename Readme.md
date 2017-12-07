@@ -24,10 +24,10 @@ npm i jsmoves --save
 ```
 
 ## API
-### .encode(obj, throwOnInvalidType = false)
+### .encode(obj, [throwOnInvalidType = false])
 Returns `false` given an invalid type.
 
-### .decode(str, throwOnInvalidSyntax = false)
+### .decode(str, [throwOnInvalidSyntax = false])
 Returns `undefined` given a invalid syntax.
 
 ## Supported data types
