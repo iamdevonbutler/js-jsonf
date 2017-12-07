@@ -1,6 +1,6 @@
 # jsmoves [![Build Status](https://travis-ci.org/iamdevonbutler/jsmoves.svg?branch=master)](https://travis-ci.org/iamdevonbutler/jsmoves)
 
-Move JS Objects from one live system to another.
+Move JS from one live system to another.
 
 **engines: node >= 8.x**
 
@@ -27,6 +27,8 @@ npm i jsmoves --save
 ### .encode(obj)
 ### .decode(str)
 
+## Does it throw, does it throw, does it throw?
+
 ## Supported data types
 
 - String
@@ -35,7 +37,7 @@ npm i jsmoves --save
 - Array
 - Object
 - Date
-- Function (regular, async, generator, arrow)
+- Function (all combinations of: regular, async, generator, arrow)
 - NaN
 - null
 - undefined

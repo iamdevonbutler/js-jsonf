@@ -1,7 +1,7 @@
 {
   "name": "jsmoves",
   "version": "0.2.0",
-  "description": "Move JS Objects from one live system to another",
+  "description": "Move JS from one live system to another",
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --harmony --reporter spec --ui bdd --bail --colors ./tests/**/*.test.js",

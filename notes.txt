@@ -2,3 +2,6 @@ We are doing a lot of work to handle functions. The simple approach would be to
 call func.toString() and the reconstuct the string using eval() or Function().
 We can't do that. The ES6 Object method syntax (e.g. var obj = { a() {} }) will
 error if we attempt to reconstruct.
+
+What's w/ the encoding map key order?
+it's arbitrary, deal w/ it.

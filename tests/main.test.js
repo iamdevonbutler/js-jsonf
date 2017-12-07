@@ -108,7 +108,7 @@ describe('jsmoves: array', () => {
   });
 });
 
-describe('jsmoves: function', () => {
+describe('jsmoves: functions', () => {
   var keys = Object.keys(funcs);
   keys.forEach(async key => {
     it (`key: ${key}`, async () => {
@@ -119,6 +119,18 @@ describe('jsmoves: function', () => {
       var [expected, expected1] = await callFunc(funcs[key], 1, () => 0);
       expect(actual).to.eql(expected);
       expect(actual1).to.eql(expected1);
+    });
+  })
+});
+
+describe('jsmoves: mixed', () => {
+  var keys = Object.keys(obj);
+  keys.forEach(async key => {
+    it (`key: ${key}`, async () => {
+      var value = obj[key];
+      var str = encode(value);
+      var parsed = decode(str);
+      expect(parsed).to.eql(obj[key]);
     });
   })
 });
