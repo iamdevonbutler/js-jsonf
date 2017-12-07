@@ -25,10 +25,10 @@ npm i jsmoves --save
 
 ## API
 ### .encode(obj, throwOnInvalidType = false)
-### .decode(str throwOnInvalidSyntax = false)
+Returns `false` given an invalid type.
 
-By default, without throwing errors, `.encode()` returns `false` given an invalid type.
-By default, without throwing errors, `.decode()` returns `undefined` given a invalid syntax.
+### .decode(str, throwOnInvalidSyntax = false)
+Returns `undefined` given a invalid syntax.
 
 ## Supported data types
 
