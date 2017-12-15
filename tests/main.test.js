@@ -17,6 +17,7 @@ var obj = {
   h: 0,
   i: 1.2,
   j: -1.2,
+  Infinity,
   k: [],
   l: {},
   m: new Date(),
