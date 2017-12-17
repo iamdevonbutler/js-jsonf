@@ -137,6 +137,14 @@ describe('jsmoves: mixed', () => {
 });
 
 describe('jsmoves: custom', () => {
+  it ('should handle function params that destructure', () => {
+    var str = encode(({result = 2} = {}) => {
+      return result;
+    });
+    var obj = decode(str);
+    expect(obj({result: 1})).to.eql(1);
+    expect(obj()).to.eql(2);
+  });
   it ('should properly name a function (as property on object) allowing it to call itself and recurse.', () => {
     var str = encode({
       a: function aaa(i = 0) {
