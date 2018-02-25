@@ -1,4 +1,4 @@
-# jsmoves [![Build Status](https://travis-ci.org/iamdevonbutler/jsmoves.svg?branch=master)](https://travis-ci.org/iamdevonbutler/jsmoves)
+# js-moves [![Build Status](https://travis-ci.org/iamdevonbutler/js-moves.svg?branch=master)](https://travis-ci.org/iamdevonbutler/js-moves)
 
 Move JS from one live system to another.
 
@@ -6,7 +6,7 @@ Move JS from one live system to another.
 
 ## Example
 ```javascript
-const {encode, decode} = require('jsmoves');
+const {encode, decode} = require('js-moves');
 const obj = {
   a: 1,
   b() {
@@ -20,7 +20,7 @@ const obj1 = decode(str);
 ## Installation
 
 ```
-npm i jsmoves --save
+npm i js-moves --save
 ```
 
 ## API
@@ -54,7 +54,7 @@ As fast as native JSON.parse() JSON.stringify():
 ```javascript
 // 1M iterations. Each iteration calls both encode and decode.
 
-// jsmoves:
+// js-moves:
 // milliseconds: 6833.45
 // ops/sec: 146,338.965
 // ---

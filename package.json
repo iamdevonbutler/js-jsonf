@@ -1,6 +1,6 @@
 {
-  "name": "jsmoves",
-  "version": "0.2.0",
+  "name": "js-moves",
+  "version": "0.1.0",
   "description": "Move JS from one live system to another",
   "main": "lib/index.js",
   "scripts": {
@@ -23,6 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamdevonbutler/jsmoves"
-  }
+    "url": "https://github.com/iamdevonbutler/js-moves"
+  },
+  "bugs": {
+    "url": "https://github.com/iamdevonbutler/js-object-interface/issues"
+  },
+  "homepage": "https://github.com/iamdevonbutler/js-object-interface#readme"
 }
