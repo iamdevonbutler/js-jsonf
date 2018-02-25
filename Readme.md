@@ -1,4 +1,6 @@
-# js-moves [![Build Status](https://travis-ci.org/iamdevonbutler/js-moves.svg?branch=master)](https://travis-ci.org/iamdevonbutler/js-moves)
+# js-jsonf [![Build Status](https://travis-ci.org/iamdevonbutler/js-jsonf.svg?branch=master)](https://travis-ci.org/iamdevonbutler/js-jsonf)
+
+JS Objects w/ function support. 
 
 Move JS from one live system to another.
 
@@ -6,7 +8,7 @@ Move JS from one live system to another.
 
 ## Example
 ```javascript
-const {encode, decode} = require('js-moves');
+const {encode, decode} = require('js-jsonf');
 const obj = {
   a: 1,
   b() {
@@ -20,7 +22,7 @@ const obj1 = decode(str);
 ## Installation
 
 ```
-npm i js-moves --save
+npm i js-jsonf --save
 ```
 
 ## API
@@ -54,7 +56,7 @@ As fast as native JSON.parse() JSON.stringify():
 ```javascript
 // 1M iterations. Each iteration calls both encode and decode.
 
-// js-moves:
+// js-jsonf:
 // milliseconds: 6833.45
 // ops/sec: 146,338.965
 // ---

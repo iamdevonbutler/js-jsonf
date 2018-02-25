@@ -30,7 +30,7 @@ while (i--) {
 
 var ms = (microtime.now() - st) / 1000;
 
-console.log('js-moves results');
+console.log('js-jsonf results');
 console.log('milliseconds: ' + ms);
 console.log('ops/sec: ' + (n / (ms / 1000)).toLocaleString() );
 console.log('---');

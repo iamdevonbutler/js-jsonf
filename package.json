@@ -1,5 +1,5 @@
 {
-  "name": "js-moves",
+  "name": "js-jsonf",
   "version": "0.1.0",
   "description": "Move JS from one live system to another",
   "main": "lib/index.js",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamdevonbutler/js-moves"
+    "url": "https://github.com/iamdevonbutler/js-jsonf"
   },
   "bugs": {
     "url": "https://github.com/iamdevonbutler/js-object-interface/issues"

@@ -66,7 +66,7 @@ var obj2 = [
   obj1,
 ];
 
-describe('js-moves: object', async () => {
+describe('js-jsonf: object', async () => {
   var str = encode(obj1);
   var parsed = decode(str);
 
@@ -87,7 +87,7 @@ describe('js-moves: object', async () => {
   });
 });
 
-describe('js-moves: array', () => {
+describe('js-jsonf: array', () => {
   var str = encode(obj2);
   var parsed = decode(str);
 
@@ -109,7 +109,7 @@ describe('js-moves: array', () => {
   });
 });
 
-describe('js-moves: functions', () => {
+describe('js-jsonf: functions', () => {
   var keys = Object.keys(funcs);
   keys.forEach(async key => {
     it (`key: ${key}`, async () => {
@@ -124,7 +124,7 @@ describe('js-moves: functions', () => {
   })
 });
 
-describe('js-moves: mixed', () => {
+describe('js-jsonf: mixed', () => {
   var keys = Object.keys(obj);
   keys.forEach(async key => {
     it (`key: ${key}`, async () => {
@@ -136,7 +136,7 @@ describe('js-moves: mixed', () => {
   })
 });
 
-describe('js-moves: custom', () => {
+describe('js-jsonf: custom', () => {
   it ('should handle function params that destructure', () => {
     var str = encode(({result = 2} = {}) => {
       return result;
