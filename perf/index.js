@@ -1,5 +1,3 @@
-const microtime = require('microtime');
-
 const {encode, decode} = require('../lib');
 
 var obj = {
@@ -18,7 +16,8 @@ var obj = {
   m: new Date(),
 };
 
-var st = microtime.now();
+// js-jsonf
+var startTime = Date.now();
 var n = 1000000;
 var i = n;
 
@@ -28,15 +27,15 @@ while (i--) {
   result = decode(str);
 }
 
-var ms = (microtime.now() - st) / 1000;
+var ms = (Date.now() - startTime);
 
 console.log('js-jsonf results');
 console.log('milliseconds: ' + ms);
-console.log('ops/sec: ' + (n / (ms / 1000)).toLocaleString() );
+console.log('ops/ms: ' + (n / ms).toLocaleString() );
 console.log('---');
 
-// Control.
-var st = microtime.now();
+// native.
+var startTime = Date.now();
 var n = 1000000;
 var i = n;
 
@@ -46,8 +45,8 @@ while (i--) {
   result = JSON.parse(str);
 }
 
-var ms = (microtime.now() - st) / 1000;
+var ms = (Date.now() - startTime);
 
-console.log('control results:');
+console.log('native results:');
 console.log('milliseconds: ' + ms);
-console.log('ops/sec: ' + (n / (ms / 1000)).toLocaleString() );
+console.log('ops/sec: ' + (n / ms).toLocaleString() );
