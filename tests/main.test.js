@@ -23,6 +23,9 @@ var obj = {
   m: new Date(),
 };
 
+console.log(encode({a: 1, b: 2}));
+return;
+
 var funcs = {
   n: function functionName(a = 1) {
     function aaa() {
