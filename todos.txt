@@ -1,2 +1,6 @@
 to test jsmoves
 - find a working app w/ tests. hijack all requires and pass eberything though jsmoves. see if the app still works.
+
+zipper decodde
+
+learning algo to decide encode if statement tree. function should probably be higher uip if u do it often. u dont know how often so u gotta learn
