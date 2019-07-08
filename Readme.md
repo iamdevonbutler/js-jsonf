@@ -41,7 +41,6 @@ Returns `undefined` given a invalid syntax.
 - Function (all combinations of: regular, async, generator, arrow)
 - NaN
 - null
-- undefined
 
 *All types are supported when wrapped in a function.*
 
@@ -50,7 +49,7 @@ Function behavior is normalized and consistent; however, the parsed function may
 
 Don't used `undefined` as a property value - use `null` instead. A value of `undefined` will cause encoding errors.
 
-`Symbols` and `Errors` are **not** supported.
+Types of `Symbol`, `Error`, and `undefined` are **not** supported.
 
 ## Perf
 As fast as native JSON.parse() JSON.stringify():
