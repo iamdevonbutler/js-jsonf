@@ -1,10 +1,8 @@
 # js-jsonf [![Build Status](https://travis-ci.org/iamdevonbutler/js-jsonf.svg?branch=master)](https://travis-ci.org/iamdevonbutler/js-jsonf)
 
-JS Objects w/ function support. 
+Encode and decode JS Objects w/ function support.
 
-Move JS from one live system to another.
-
-**engines: node >= 8.x**
+**engines: node >= 9.x**
 
 ## Example
 ```javascript
@@ -49,6 +47,10 @@ Returns `undefined` given a invalid syntax.
 
 ## Caveats
 Function behavior is normalized and consistent; however, the parsed function may contain slight formatting differences from the original; its functionality however, will remain consistent.
+
+Don't used `undefined` as a property value - use `null` instead. A value of `undefined` will cause encoding errors.
+
+`Symbols` and `Errors` are **not** supported.
 
 ## Perf
 As fast as native JSON.parse() JSON.stringify():

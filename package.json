@@ -1,6 +1,6 @@
 {
   "name": "js-jsonf",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Move JS from one live system to another",
   "main": "lib/index.js",
   "scripts": {
@@ -12,13 +12,13 @@
   "devDependencies": {
     "chai": "4.0.2",
     "mocha": "3.4.2",
-    "possibilities": "0.1.0"
+    "js-matrix": "0.1.0"
   },
   "dependencies": {
     "fparts": "0.4.0"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=9.0.0"
   },
   "repository": {
     "type": "git",
