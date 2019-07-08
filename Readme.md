@@ -65,6 +65,3 @@ As fast as native JSON.parse() JSON.stringify():
 // milliseconds: 7033.58
 // ops/sec: 142,175.109
 ```
-
-## License
-MIT

@@ -10,3 +10,8 @@ learning algo to decide encode if statement tree. function should probably be hi
 write js-reduce w/ tests
 remove tests and code for when a value is undefined.
 see if we can get Proxys to work.
+
+---
+
+readme
+- update perf. test control perfin different processes (memory overload).
