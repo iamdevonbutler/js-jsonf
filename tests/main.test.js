@@ -1,10 +1,8 @@
-'use strict';
+const {encode, decode} = require('../lib');
 
 const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
-
-const {encode, decode} = require('../lib');
 
 var obj = {
   a: false,
@@ -22,9 +20,6 @@ var obj = {
   l: {},
   m: new Date(),
 };
-
-console.log(encode({a: 1, b: 2}));
-return;
 
 var funcs = {
   n: function functionName(a = 1) {

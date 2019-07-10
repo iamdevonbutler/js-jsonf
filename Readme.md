@@ -18,7 +18,6 @@ const obj1 = decode(str);
 ```
 
 ## Installation
-
 ```
 npm i js-jsonf --save
 ```
